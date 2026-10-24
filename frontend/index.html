@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f6f8" />
+    <title>OpsPulse — Business intelligence, in focus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#" aria-label="OpsPulse home">
+          <span class="brand-mark"><span></span><span></span><span></span></span>
+          <span>ops<span class="brand-light">pulse</span></span>
+        </a>
+        <div class="workspace-label">WORKSPACE</div>
+        <div class="workspace-picker">
+          <span class="workspace-avatar">N</span>
+          <span class="workspace-name">Northstar Goods<small>Starter workspace</small></span>
+          <span class="chevron">⌄</span>
+        </div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a class="nav-item active" href="#overview"><span class="nav-icon">▦</span>Overview</a>
+          <a class="nav-item" href="#inventory"><span class="nav-icon">◫</span>Inventory <span class="nav-count" id="nav-stock-count">—</span></a>
+          <a class="nav-item" href="#performance"><span class="nav-icon">⌁</span>Performance</a>
+          <a class="nav-item" href="#assistant"><span class="nav-icon">✳</span>AI analyst <span class="nav-new">AI</span></a>
+        </nav>
+        <div class="sidebar-spacer"></div>
+        <div class="sidebar-note">
+          <div class="note-icon">✦</div>
+          <strong>Your business, in focus.</strong>
+          <p>Clear signals from your sales and stock data, all in one place.</p>
+        </div>
+        <div class="profile">
+          <span class="profile-avatar">JD</span>
+          <span class="profile-name">Jamie Davis<small>Workspace owner</small></span>
+          <span class="profile-menu">···</span>
+        </div>
+      </aside>
+
+      <main class="main-content" id="overview">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><strong>Overview</strong></div>
+          <div class="topbar-actions">
+            <span class="live-indicator"><span></span>Live overview</span>
+            <button class="icon-button" id="refresh-button" aria-label="Refresh dashboard" title="Refresh dashboard">↻</button>
+            <button class="top-avatar" aria-label="Account">JD</button>
+          </div>
+        </header>
+
+        <div class="page-wrap">
+          <section class="page-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-mark">✳</span> YOUR BUSINESS AT A GLANCE</div>
+              <h1>Good morning, Jamie <span class="wave">✦</span></h1>
+              <p class="page-subtitle">Here’s what’s happening with your business.</p>
+            </div>
+            <label class="period-select-wrap">
+              <span class="period-calendar">▦</span>
+              <select id="period-select" aria-label="Select reporting period">
+                <option value="7">Last 7 days</option>
+                <option value="30" selected>Last 30 days</option>
+                <option value="90">Last 90 days</option>
+              </select>
+              <span class="select-chevron">⌄</span>
+            </label>
+          </section>
+
+          <section class="kpi-grid" aria-label="Key performance indicators">
+            <article class="kpi-card">
+              <div class="kpi-top"><span class="kpi-label">Total revenue</span><span class="kpi-icon revenue-icon">↗</span></div>
+              <div class="kpi-value" id="kpi-revenue">—</div>
+              <div class="kpi-foot"><span class="change-pill" id="revenue-change">—</span><span class="muted">vs. previous period</span></div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-top"><span class="kpi-label">Gross profit</span><span class="kpi-icon profit-icon">◒</span></div>
+              <div class="kpi-value" id="kpi-profit">—</div>
+              <div class="kpi-foot"><span class="profit-margin" id="profit-margin">—</span><span class="muted">profit margin</span></div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-top"><span class="kpi-label">Units sold</span><span class="kpi-icon units-icon">◉</span></div>
+              <div class="kpi-value" id="kpi-units">—</div>
+              <div class="kpi-foot"><span class="muted">Across all products</span></div>
+              <div class="kpi-bottom-tag"><span class="tiny-dot"></span>Sales volume</div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-top"><span class="kpi-label">Needs attention</span><span class="kpi-icon attention-icon">!</span></div>
+              <div class="kpi-value" id="kpi-attention">—</div>
+              <div class="kpi-foot"><span class="attention-caption" id="attention-caption">Checking inventory</span></div>
+              <a class="kpi-link" href="#inventory">Review stock <span>→</span></a>
+            </article>
+          </section>
+
+          <section class="insight-banner" id="insight-banner">
+            <div class="insight-spark">✳</div>
+            <div class="insight-copy"><strong id="insight-title">A clearer picture, at a glance.</strong><span id="insight-text">Your sales and inventory signals are ready when you are.</span></div>
+            <button class="text-button" id="summary-button">Get AI summary <span>→</span></button>
+          </section>
+
+          <section class="content-grid" id="performance">
+            <article class="panel chart-panel">
+              <div class="panel-heading">
+                <div><div class="panel-title">Revenue over time</div><div class="panel-subtitle">Daily sales performance</div></div>
+                <div class="chart-legend"><span><i class="legend-dot actual"></i>Actual</span><span><i class="legend-dot forecast"></i>Forecast</span></div>
+              </div>
+              <div class="chart-kpi-row"><span class="chart-total" id="chart-revenue">—</span><span class="chart-period" id="chart-period">last 30 days</span></div>
+              <div class="chart-area" id="chart-container"><div class="chart-loading">Loading revenue data…</div></div>
+              <div class="chart-foot"><span><span class="chart-foot-dot"></span>Based on recorded daily sales</span><span class="forecast-note">Forecast is directional, not a guarantee</span></div>
+            </article>
+            <article class="panel product-panel">
+              <div class="panel-heading">
+                <div><div class="panel-title">Best sellers</div><div class="panel-subtitle">Top products this period</div></div>
+                <a class="panel-action" href="#inventory">View inventory <span>→</span></a>
+              </div>
+              <div class="product-list" id="best-sellers"><div class="chart-loading">Loading products…</div></div>
+            </article>
+          </section>
+
+          <section class="content-grid lower-grid">
+            <article class="panel inventory-panel" id="inventory">
+              <div class="panel-heading inventory-heading">
+                <div><div class="panel-title">Inventory watch</div><div class="panel-subtitle">Stay ahead of low stock</div></div>
+                <span class="attention-badge" id="stock-badge">—</span>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>PRODUCT</th><th>IN STOCK</th><th>STATUS</th><th>SUGGESTED RESTOCK</th></tr></thead>
+                  <tbody id="inventory-rows"><tr><td colspan="4" class="table-loading">Loading inventory…</td></tr></tbody>
+                </table>
+              </div>
+              <div class="inventory-foot"><span>Stock alerts are based on each product’s reorder point.</span></div>
+            </article>
+            <article class="panel activity-panel">
+              <div class="panel-heading">
+                <div><div class="panel-title">Business signals</div><div class="panel-subtitle">Patterns worth a closer look</div></div>
+                <span class="activity-spark">✳</span>
+              </div>
+              <div id="business-signals" class="signals-list"><div class="chart-loading">Reviewing your sales…</div></div>
+              <div class="activity-foot">Signals describe patterns in your data, not their cause.</div>
+            </article>
+          </section>
+
+          <section class="panel assistant-panel" id="assistant">
+            <div class="assistant-intro">
+              <div class="assistant-mark">✳</div>
+              <div><div class="panel-title">Ask your business analyst</div><div class="panel-subtitle">Answers grounded in your computed dashboard metrics.</div></div>
+              <span class="ai-powered">POWERED BY CLAUDE</span>
+            </div>
+            <form id="question-form" class="question-form">
+              <label class="visually-hidden" for="question-input">Ask a question about your dashboard</label>
+              <input id="question-input" maxlength="500" minlength="3" placeholder="e.g. Which products should I restock first?" required />
+              <button type="submit" id="ask-button"><span>Ask OpsPulse</span><span>→</span></button>
+            </form>
+            <div class="suggested-questions"><span>Try asking</span><button type="button" class="suggestion">What changed in sales?</button><button type="button" class="suggestion">Which products need restocking?</button></div>
+            <div id="ai-answer" class="ai-answer" role="status" aria-live="polite" hidden></div>
+          </section>
+
+          <footer class="page-footer"><span>OpsPulse <span class="footer-dot">·</span> Business intelligence, in focus.</span><span>Sample data <span class="footer-dot">·</span> For demonstration purposes</span></footer>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
